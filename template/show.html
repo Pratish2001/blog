@@ -1,0 +1,52 @@
+{% include 'base.html' %}
+{% block content %}
+<center>
+  <h2> Blog's </h2>
+  </center>
+  <style>
+    
+    img.card-img-top {
+    height: 200px;
+}
+.col-lg-3 {
+    margin-top: 50px;
+}
+h5.card-title {
+    text-align: center;
+    text-decoration: underline;
+}
+h2 {
+    text-decoration: underline;
+}
+  </style>
+  <div class="conatiner">
+    <div class="row">
+      {% for i in data %}
+      <div class="col-lg-3">
+        <div class="card" style="width: 20rem;">
+          <a href="{% url 'readmore' i.id %}" class=" btn-primary"><img src="{{ i.image.url }}" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.description|safe|slice:"0:210"}}</p>
+            <a href="{% url 'readmore' i.id %}" class="btn btn-outline-secondary">Read More</a>
+            
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  {% endblock %}
+  <center>
+
+    <li style="--i:3">
+      <a href="https://www.instagram.com/pratish_dogra_/" style="font-size: xxx-large;">
+          <span class="fa fa-instagram"></span>
+      </a>
+      </li>
+
+  </center>
+  
+  
+    

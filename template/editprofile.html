@@ -1,0 +1,40 @@
+{% include 'base.html' %}
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+        background-color: cadetblue;
+    }
+    form {
+    width: 30%;
+    display: table;
+    margin: auto;
+    }
+</style> 
+    <h2 class="text-center" >COMPLETE YOUR PROFILE</h2>
+           <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                     <label for="">First Name</label>
+                     <input type="text" name="first_name" value="{{data.first_name}}" class="form-control" ><br>
+                     <label for="">LAST Name</label>
+                     <input type="text" name="last_name"  value="{{data.last_name}}" class="form-control" ><br>
+                     <label for="">User Name</label>
+                     <input type="text" name="username" value="{{user.username}}" class="form-control"  ><br>
+                     <label for="">EMAIL</label>
+                     <input type="email" name="email" value="{{user.email}}"  class="form-control" ><br>
+                     <label for="">PROFILE PIC</label>
+                     <input type="file" name="img" class="form-control" ><br>
+
+                     <label for="">ABOUT ME</label>
+                     <input type="text" name="about_me" value="{{data.about_me}}" class="form-control" ><br>
+                     <br>
+                     <div class="text-center k">
+         
+                         <input type="submit" value="UPDATE" class="btn btn-danger"  >
+                     </div>
+                     
+                 </form>
+             </div>
+
+             {% endblock %}

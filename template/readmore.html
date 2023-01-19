@@ -1,0 +1,33 @@
+{% include 'base.html' %}
+{% block content %}
+<style>
+    img.card-img-top {
+    width: 40%;
+    display: table;
+    margin: auto;
+}
+h6 {
+    float: right;
+    margin-right: -202px;
+}
+</style>
+<div class="container">
+    <div class="row"></div>
+    <h1 class="text-center">{{data.title}}</h1>
+    
+    <img src="{{ data.image.url }}" class="card-img-top" width="50%" alt="...">
+    
+    <p class="card-text-right">{{ data.description|safe}}</p>
+   <h5 style="float: right;">UPLOAD BY : {{data.uplode_by }}</h5><br>
+   
+   <div class="px">
+
+       <h6 style="float: right;">{{data.time }}</h6>
+       {% if user.username == data.uplode_by %}
+       <a href="{% url 'delete' data.id %}" class=" btn btn-outline-light"><i class="fa fa-trash-o" style="font-size:36px"></i></a>
+       <a href="{% url 'edit' data.id %}" class=" btn btn-outline-light"><i class='fa fa-edit' style='font-size:36px'></i></a>
+       {% else %}
+       {% endif %}
+    </div>
+</div>
+{% endblock %}
